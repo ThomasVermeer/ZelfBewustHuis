@@ -24,6 +24,7 @@ Route::get('/homepage', function () {
 });
 
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::resource('projects', ProjectController::class);
 
 
 Route::get('/dashboard', function () {
