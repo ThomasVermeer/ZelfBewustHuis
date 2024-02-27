@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->enum('status', ['inDevelopment', 'ongoing', 'realised']);
+            $table->string('description');
             $table->timestamps();
         });
     }

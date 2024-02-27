@@ -23,6 +23,15 @@
             max-width: 100%;
             height: auto;
         }
+        footer{
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -62,6 +71,11 @@
     <div class="container mx-auto mt-8 text-center">
         <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">Button</button>
     </div>
+
+    <footer class="bg-green-800">
+        <h1 class="text-2xl mt-4">Locatie</h1>
+        <h2 class="">2e tekst</h2>
+    </footer>
+
 </body>
 </html>
-
