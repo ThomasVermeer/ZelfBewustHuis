@@ -25,16 +25,20 @@ class ProjectController extends Controller
             'name' => 'required',
             'description' => 'required',
             'status' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        $imagePath = $request->file('image')->storeAs('public/images', $request->file('image')->getClientOriginalName());
 
         Project::create([
             'name' => $request->name,
             'description' => $request->description,
             'status' => $request->status,
+            'image' => str_replace('public/', 'storage/', $imagePath),
         ]);
 
         return redirect()->route('projects.index')
-            ->with('success', 'Project created successfully.');
+            ->with('success', 'Project succesvol aangemaakt.');
     }
 
     public function show(string $id)
@@ -65,13 +69,13 @@ class ProjectController extends Controller
         ]);
 
         return redirect()->route('projects.index')
-            ->with('success', 'Project updated successfully.');
+            ->with('success', 'Project succesvol bijgewerkt.');
     }
 
     public function destroy(string $id)
     {
         $project = Project::findOrFail($id);
         $project->delete();
-        return redirect()->route('projects.index')->with('success', 'Project deleted successfully.');
+        return redirect()->route('projects.index')->with('success', 'Project succesvol verwijderd.');
     }
 }

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Create Project') }}
+            {{ __('Maak project aan') }}
         </h2>
     </x-slot>
 
@@ -28,6 +28,11 @@
                                 <option value="lopende">lopende</option>
                                 <option value="gerealiseerd">gerealiseerd</option>
                             </select>
+                        </div>
+
+                        <div class="mt-4">
+                            <label for="image" class="font-bold">{{ __('Afbeelding') }}</label>
+                            <input id="image" type="file" name="image" accept="image/*" class="block mt-1">
                         </div>
 
                         <div class="flex items-center justify-end mt-4">

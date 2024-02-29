@@ -19,6 +19,7 @@ class ProjectSeeder extends Seeder
                 'name' => $faker->word, 
                 'status' => $faker->randomElement(['inDevelopment', 'ongoing', 'realised']),
                 'description' => $faker->paragraph,
+                'image' => $faker->image('public/storage/images', 400, 300, null, false),
             ]);
         }
     }
