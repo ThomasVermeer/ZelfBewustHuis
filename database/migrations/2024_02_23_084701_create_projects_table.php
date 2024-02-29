@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->enum('status', ['inOntwikkeling', 'lopende', 'gerealiseerd']);
             $table->string('description');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

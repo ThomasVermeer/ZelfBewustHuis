@@ -25,16 +25,16 @@ class ProjectController extends Controller
             'name' => 'required',
             'description' => 'required',
             'status' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => ''
         ]);
 
-        $imagePath = $request->file('image')->storeAs('public/images', $request->file('image')->getClientOriginalName());
+        // $imagePath = $request->file('image')->storeAs('public/images', $request->file('image')->getClientOriginalName());
 
         Project::create([
             'name' => $request->name,
             'description' => $request->description,
             'status' => $request->status,
-            'image' => str_replace('public/', 'storage/', $imagePath),
+            // 'image' => str_replace('public/', 'storage/', $imagePath),
         ]);
 
         return redirect()->route('projects.index')
