@@ -3,7 +3,7 @@
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-4xl font-bold">Projects</h1>
             <div class="space-x-4">
-                <a href="{{ route('projects.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Create</a>
+                <a href="{{ route('projects.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Maak project aan</a>
             </div>
         </div>
     
@@ -14,11 +14,11 @@
                 <p class="mt-2 text-sm text-gray-500">Status: {{ ucfirst($project->status) }}</p>
 
                 <div class="mt-4 flex space-x-2">
-                    <a href="{{ route('projects.edit', $project->id) }}" class="text-blue-500 hover:underline">Edit</a>
-                    <form action="{{ route('projects.destroy', $project->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this project?')">
+                    <a href="{{ route('projects.edit', $project->id) }}" class="text-blue-500 hover:underline">Aanpassen</a>
+                    <form action="{{ route('projects.destroy', $project->id) }}" method="post" onsubmit="return confirm('Weet je zeker dat je dit project wilt verwijderen?')">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="text-red-500 hover:underline">Delete</button>
+                        <button type="submit" class="text-red-500 hover:underline">Verwijderen</button>
                     </form>
                 </div>
             </div>
