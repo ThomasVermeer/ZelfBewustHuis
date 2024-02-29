@@ -12,12 +12,12 @@
                     <form method="POST" action="{{ route('projects.store') }}">
                         @csrf
                         <div>
-                            <label for="name" class="font-bold">{{ __('Name') }}</label>
+                            <label for="name" class="font-bold">{{ __('Naam') }}</label>
                             <input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
                         </div>
 
                         <div class="mt-4">
-                            <label for="description" class="font-bold">{{ __('Description') }}</label>
+                            <label for="description" class="font-bold">{{ __('Beschrijving') }}</label>
                             <textarea id="description" class="block mt-1 w-full" name="description" rows="4" required>{{ old('description') }}</textarea>
                         </div>
 
@@ -32,7 +32,7 @@
 
                         <div class="flex items-center justify-end mt-4">
                             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">
-                                {{ __('Create') }}
+                                {{ __('Aanmaken') }}
                             </button>
                         </div>
                     </form>
