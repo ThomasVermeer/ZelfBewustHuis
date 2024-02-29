@@ -28,11 +28,21 @@
                 <p class="text-gray-700">{{ $project->description }}</p>
 
                 <div class="mt-4 flex space-x-2">
-                    <a href="{{ route('projects.edit', $project->id) }}" class="text-blue-500 hover:underline">Bewerken</a>
+                    <a href="{{ route('projects.edit', $project->id) }}" class="text-blue-500 hover:underline">
+                        <div class="project-flex">
+                            <img style="width: 20px; margin-right: 4px;" src="{{ asset('img/Pencil.png')}}" alt="">
+                            <p style="margin-right: 4px; color: #2457c5;">Bewerken</p>
+                        </div>
+                    </a>
                     <form action="{{ route('projects.destroy', $project->id) }}" method="post" onsubmit="return confirm('Weet u zeker dat u dit project wilt verwijderen?')">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="text-red-500 hover:underline">Verwijderen</button>
+                        <button type="submit" class="text-red-500 hover:underline">
+                            <div class="project-flex">
+                                <img style="width: 20px; margin-right: 4px;" src="{{ asset('img/Remove.png')}}" alt="">
+                                <p style="color: #BB271A;">Verwijderen</p>
+                            </div>
+                        </button>
                     </form>
                 </div>
             </div>

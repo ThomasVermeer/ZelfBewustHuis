@@ -19,3 +19,6 @@
     padding-right: 4px;
     color: white;
 }
+.project-flex{
+    display: flex;
+}
