@@ -3,11 +3,7 @@
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-4xl font-bold">Projects</h1>
             <div class="space-x-4">
-<<<<<<< Updated upstream
-                <a href="{{ route('projects.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Maak project aan</a>
-=======
                 <a href="{{ route('projects.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Project aanmaken</a>
->>>>>>> Stashed changes
             </div>
         </div>
     
@@ -32,13 +28,8 @@
                 <p class="text-gray-700">{{ $project->description }}</p>
 
                 <div class="mt-4 flex space-x-2">
-<<<<<<< Updated upstream
-                    <a href="{{ route('projects.edit', $project->id) }}" class="text-blue-500 hover:underline">Aanpassen</a>
-                    <form action="{{ route('projects.destroy', $project->id) }}" method="post" onsubmit="return confirm('Weet je zeker dat je dit project wilt verwijderen?')">
-=======
                     <a href="{{ route('projects.edit', $project->id) }}" class="text-blue-500 hover:underline">Bewerken</a>
                     <form action="{{ route('projects.destroy', $project->id) }}" method="post" onsubmit="return confirm('Weet u zeker dat u dit project wilt verwijderen?')">
->>>>>>> Stashed changes
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="text-red-500 hover:underline">Verwijderen</button>
