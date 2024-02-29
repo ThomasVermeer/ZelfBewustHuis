@@ -32,6 +32,16 @@
             color: white;
             text-align: center;
         }
+        /* Toegevoegde stijlen voor scrollbare container */
+        .scroll-container {
+            max-width: 100%;
+            overflow-x: auto; /* Horizontale scrollbar toevoegen */
+            display: flex;
+            -webkit-overflow-scrolling: touch; /* Voor soepel scrollen op iOS */
+        }
+        .scroll-content {
+            min-width: 400%; /* Zorgt ervoor dat er meer ruimte is dan het viewport */
+        }
     </style>
 </head>
 <body>
@@ -54,16 +64,35 @@
     <img src="img/banner-zelfbewuste-huis.jpg" alt="Banner" class="banner">
 
     <!-- Grid layout voor kolommen -->
-    <div class="container mx-auto mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Eerste kolom met tekst -->
-        <div>
-            <h2 class="text-xl font-bold mb-4">Eerste Kolom</h2>
-            <p class="mb-4">Tekst hier...</p>
-        </div>
-
-        <!-- Afbeelding aan de rechterkant -->
-        <div>
-            <img src="img/Project1.jpg" alt="Afbeelding" class="small-img">
+    <div class="container mx-auto mt-8 overflow-x-auto">
+        <div class="scroll-container flex items-start space-x-1">
+            <!-- Herhaal deze div voor elk item -->
+            <div class="w-1/2 p-2 scroll-content">
+                <h2 class="text-xl font-bold mb-4">Eerste Kolom</h2>
+                <p class="mb-4">Tekst hier...</p>
+                <img src="img/Project1.jpg" alt="Afbeelding" class="small-img">
+            </div>
+            <div class="w-1/2 p-2 scroll-content">
+                <h2 class="text-xl font-bold mb-4">Tweede Kolom</h2>
+                <p class="mb-4">Tekst hier...</p>
+                <img src="img/Project2.jpg" alt="Afbeelding" class="small-img">
+            </div>
+            <div class="w-1/2 p-2 scroll-content">
+                <h2 class="text-xl font-bold mb-4">Derde Kolom</h2>
+                <p class="mb-4">Tekst hier...</p>
+                <img src="img/Project3.jpg" alt="Afbeelding" class="small-img">
+            </div>
+            <div class="w-1/2 p-2 scroll-content">
+                <h2 class="text-xl font-bold mb-4">Vierde Kolom</h2>
+                <p class="mb-4">Tekst hier...</p>
+                <img src="img/Project4.jpg" alt="Afbeelding" class="small-img">
+            </div>
+            <div class="w-1/2 p-2 scroll-content">
+                <h2 class="text-xl font-bold mb-4">Vijfde Kolom</h2>
+                <p class="mb-4">Tekst hier...</p>
+                <img src="img/Project5.jpg" alt="Afbeelding" class="small-img">
+            </div>
+            <!-- Einde herhaalde div -->
         </div>
     </div>
 
