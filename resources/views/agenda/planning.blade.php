@@ -64,16 +64,60 @@
                 initialView: 'dayGridMonth',
                 events: [
                     {
-                        title: 'Java',
+                        title: 'Java Programming',
                         start: '2024-03-01T10:00:00',
-                        end: '2024-03-01T12:00:00'
+                        end: '2024-03-01T12:00:00',
+                        color: '#3788d8'
                     },
                     {
-                        title: 'Project',
+                        title: 'Project Meeting',
                         start: '2024-03-03T14:00:00',
-                        end: '2024-03-03T16:00:00'
+                        end: '2024-03-03T16:00:00',
+                        color: '#29a44b'
+                    },
+                    {
+                        title: 'Team Lunch',
+                        start: '2024-03-07T12:00:00',
+                        end: '2024-03-07T13:00:00',
+                        color: '#d66323'
+                    },
+                    {
+                        title: 'Conference',
+                        start: '2024-03-10T10:00:00',
+                        end: '2024-03-12T18:00:00',
+                        color: '#af4bd6'
+                    },
+                    {
+                        title: 'Presentation',
+                        start: '2024-03-15T13:00:00',
+                        end: '2024-03-15T15:00:00',
+                        color: '#4b7cd6'
+                    },
+                    {
+                        title: 'Training Workshop',
+                        start: '2024-03-18T09:00:00',
+                        end: '2024-03-18T17:00:00',
+                        color: '#d6764b'
+                    },
+                    {
+                        title: 'Team Building',
+                        start: '2024-03-22T14:00:00',
+                        end: '2024-03-22T16:00:00',
+                        color: '#2389d6'
+                    },
+                    {
+                        title: 'Deadline',
+                        start: '2024-03-25',
+                        end: '2024-03-25',
+                        color: '#d64b82'
+                    },
+                    {
+                        title: 'Holiday',
+                        start: '2024-03-28',
+                        end: '2024-03-29',
+                        color: '#82d64b'
                     }
-                    // Voeg hier extra evenementen toe
+                    // Voeg hier extra evenementen toe met bijbehorende kleuren
                 ]
             });
             calendar.render();
