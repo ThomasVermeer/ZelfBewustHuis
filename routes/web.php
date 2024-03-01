@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/homepage', function () {
-    return view('homepage');
-});
+
+
+Route::get('/homepage', [ProjectController::class, 'homepage']);
+
 
 Route::view('/kalender', 'kalender.index')->name('kalender.index');
 

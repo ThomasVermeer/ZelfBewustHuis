@@ -14,6 +14,13 @@ class ProjectController extends Controller
         return view('projects.index', compact('projects'));
     }
 
+    public function homepage()
+    {
+        $projects = Project::all();
+
+        return view('/homepage', compact('projects'));
+    }
+
     public function create()
     {
         return view('projects.create');
