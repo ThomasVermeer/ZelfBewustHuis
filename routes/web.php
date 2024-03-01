@@ -25,6 +25,8 @@ Route::get('/', function () {
 Route::get('/homepage', [ProjectController::class, 'homepage']);
 
 
+Route::view('/kalender', 'kalender.index')->name('kalender.index');
+
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::resource('projects', ProjectController::class);
 

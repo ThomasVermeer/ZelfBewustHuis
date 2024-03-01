@@ -23,11 +23,10 @@
                         {{ ucfirst($project->status) }}
                     </p>
                     @if ($project->image)
-                        <img src="{{ asset('storage/images/' . $project->image) }}" alt="{{ $project->name }}" />
+                        <img src="/storage/img/{{ $project->image }}" alt="{{ $project->name }}" />
                     @endif
                 </div>
 
-            
                 <div class="mt-4 flex space-x-2">
                     <a href="{{ route('projects.edit', $project->id) }}" class="text-blue-500 hover:underline">
                         <div class="project-flex">
