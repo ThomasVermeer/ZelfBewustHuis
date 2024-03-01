@@ -20,7 +20,13 @@
                                 @elseif($project->status === 'realised')
                                     status-gerealiseerd
                                 @endif">
-                            {{ ucfirst($project->status) }}
+                                @if($project->status === 'inDevelopment')
+                                    {{ __('inDevelopment')}}
+                                @elseif($project->status === 'ongoing')
+                                    {{ __('ongoing')}}
+                                @elseif($project->status === 'realised')
+                                    {{ __('realised')}}
+                                @endif
                         </p>
                     </div>
                     <p class="text-gray-700">{{ $project->description }}</p>
