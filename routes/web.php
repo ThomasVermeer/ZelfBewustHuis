@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::get('/homepage', function () {
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::resource('projects', ProjectController::class);
 
+Route::get('/calendar', [CalendarController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
