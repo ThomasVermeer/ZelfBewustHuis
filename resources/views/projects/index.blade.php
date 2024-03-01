@@ -9,19 +9,21 @@
     
         @forelse($projects as $project)
             <div class="bg-gray-100 p-6 mb-6 rounded">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                    <h2 class="text-2xl font-bold mb-2 mr-20">{{ $project->name }}</h2>
+                <div style="">
+                    <div class="name-status">
+                        <h2 class="text-2xl font-bold mb-2 mr-20">{{ $project->name }}</h2>
+                        <p class="status-label 
+                                @if($project->status === 'inDevelopment')
+                                    status-in-ontwikkeling
+                                @elseif($project->status === 'ongoing')
+                                    status-lopend
+                                @elseif($project->status === 'realised')
+                                    status-gerealiseerd
+                                @endif">
+                            {{ ucfirst($project->status) }}
+                        </p>
+                    </div>
                     <p class="text-gray-700">{{ $project->description }}</p>
-                    <p class="status-label 
-                              @if($project->status === 'inOntwikkeling')
-                                  status-in-ontwikkeling
-                              @elseif($project->status === 'lopende')
-                                  status-lopend
-                              @elseif($project->status === 'gerealiseerd')
-                                  status-gerealiseerd
-                              @endif">
-                        {{ ucfirst($project->status) }}
-                    </p>
                     @if ($project->image)
                         <img src="{{ $project->image }}" alt="{{ $project->name }}" class="project-image" />
                     @endif
