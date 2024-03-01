@@ -13,17 +13,17 @@
                     <h2 class="text-2xl font-bold mb-2 mr-20">{{ $project->name }}</h2>
                     <p class="text-gray-700">{{ $project->description }}</p>
                     <p class="status-label 
-                              @if($project->status === 'inDevelopment')
+                              @if($project->status === 'inOntwikkeling')
                                   status-in-ontwikkeling
-                              @elseif($project->status === 'ongoing')
+                              @elseif($project->status === 'lopende')
                                   status-lopend
-                              @elseif($project->status === 'realised')
+                              @elseif($project->status === 'gerealiseerd')
                                   status-gerealiseerd
                               @endif">
                         {{ ucfirst($project->status) }}
                     </p>
                     @if ($project->image)
-                        <img src="/storage/img/{{ $project->image }}" alt="{{ $project->name }}" />
+                        <img src="{{ $project->image }}" alt="{{ $project->name }}" class="project-image" />
                     @endif
                 </div>
 
