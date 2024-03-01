@@ -73,6 +73,7 @@
             <div class="w-1/2 p-2 scroll-content">
                 <h2 class="text-xl font-bold mb-4">{{$project->name}}</h2>
                 <p class="mb-4">{{$project->description}}</p>
+                <h2 class="text-xl font-bold mb-4">{{$project->status}}</h2>
                 <img src="img/Project1.jpg" alt="Afbeelding" class="small-img">
             </div>
           
