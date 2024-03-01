@@ -25,20 +25,27 @@ class ProjectController extends Controller
             'name' => 'required',
             'description' => 'required',
             'status' => 'required',
-            'image' => ''
+            'image' => 'image|mimes:jpeg,png,jpg,gif',
         ]);
 
-        // $imagePath = $request->file('image')->storeAs('public/images', $request->file('image')->getClientOriginalName());
-
-        Project::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'status' => $request->status,
-            // 'image' => str_replace('public/', 'storage/', $imagePath),
-        ]);
-
-        return redirect()->route('projects.index')
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+ 
+            $image->storeAs('public/img', $imageName);
+ 
+            $imageName = 'storage/img/' . $imageName;
+ 
+            Project::create([
+                'name' => $request->name,
+                'description' => $request->description,
+                'status' => $request->status,
+                'image' => $imageName,
+            ]);
+ 
+            return redirect()->route('projects.index')
             ->with('success', 'Project succesvol aangemaakt.');
+        }
     }
 
     public function show(string $id)
