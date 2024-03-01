@@ -66,33 +66,18 @@
     <!-- Grid layout voor kolommen -->
     <div class="container mx-auto mt-8 overflow-x-auto">
         <div class="scroll-container flex items-start space-x-1">
-            <!-- Herhaal deze div voor elk item -->
+       
+            @foreach ($projects as $project)
+                
+           
             <div class="w-1/2 p-2 scroll-content">
-                <h2 class="text-xl font-bold mb-4">Eerste Kolom</h2>
-                <p class="mb-4">Tekst hier...</p>
+                <h2 class="text-xl font-bold mb-4">{{$project->name}}</h2>
+                <p class="mb-4">{{$project->description}}</p>
+                <h2 class="text-xl font-bold mb-4">{{$project->status}}</h2>
                 <img src="img/Project1.jpg" alt="Afbeelding" class="small-img">
             </div>
-            <div class="w-1/2 p-2 scroll-content">
-                <h2 class="text-xl font-bold mb-4">Tweede Kolom</h2>
-                <p class="mb-4">Tekst hier...</p>
-                <img src="img/Project2.jpg" alt="Afbeelding" class="small-img">
-            </div>
-            <div class="w-1/2 p-2 scroll-content">
-                <h2 class="text-xl font-bold mb-4">Derde Kolom</h2>
-                <p class="mb-4">Tekst hier...</p>
-                <img src="img/Project3.jpg" alt="Afbeelding" class="small-img">
-            </div>
-            <div class="w-1/2 p-2 scroll-content">
-                <h2 class="text-xl font-bold mb-4">Vierde Kolom</h2>
-                <p class="mb-4">Tekst hier...</p>
-                <img src="img/Project4.jpg" alt="Afbeelding" class="small-img">
-            </div>
-            <div class="w-1/2 p-2 scroll-content">
-                <h2 class="text-xl font-bold mb-4">Vijfde Kolom</h2>
-                <p class="mb-4">Tekst hier...</p>
-                <img src="img/Project5.jpg" alt="Afbeelding" class="small-img">
-            </div>
-            <!-- Einde herhaalde div -->
+          
+            @endforeach
         </div>
     </div>
 
