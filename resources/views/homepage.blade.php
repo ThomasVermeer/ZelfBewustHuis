@@ -86,9 +86,15 @@
         <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">Button</button>
     </div>
 
-    <footer class="bg-green-800">
+    <footer class="bg-green-800" style="padding-top: 20px; padding-bottom: 20px;">
         <h1 class="text-2xl mt-4">Locatie</h1>
-        <h2 class="">2e tekst</h2>
+        <h2 class="">Curio, frankenlein, 15 (HBO)</h2>
+
+        <!-- Afbeeldingen naast elkaar met ruimte ertussen -->
+        <div style="display: flex; margin-top: 20px;">
+            <img src="img/Project1.jpg" width="150" style="margin-right: 20px;">
+            <img src="img/Project1.jpg" width="150" style="margin-right: 20px;">
+        </div>
     </footer>
 
 </body>
