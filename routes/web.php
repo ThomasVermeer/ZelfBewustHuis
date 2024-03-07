@@ -5,6 +5,7 @@ use App\Http\Controllers\ProjectController;
 use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,10 @@ Route::view('/kalender', 'kalender.index')->name('kalender.index');
 
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::resource('projects', ProjectController::class);
+
+
+Route::resource('events', EventController::class);
+
 
 Route::get('/calendar', [CalendarController::class, 'index']);
 
