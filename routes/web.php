@@ -17,13 +17,13 @@ use App\Http\Controllers\CalendarController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('homepage');
+// });
 
 
 
-Route::get('/homepage', [ProjectController::class, 'homepage']);
+Route::get('/', [ProjectController::class, 'homepage'])->name('homepage');
 
 
 Route::view('/kalender', 'kalender.index')->name('kalender.index');
@@ -32,10 +32,6 @@ Route::get('/projects', [ProjectController::class, 'index'])->name('projects.ind
 Route::resource('projects', ProjectController::class);
 
 Route::get('/calendar', [CalendarController::class, 'index']);
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

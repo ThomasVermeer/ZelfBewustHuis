@@ -16,7 +16,12 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+            @if (Auth::check())
+                @include('layouts.logged_in_header') <!-- Include logged in header if user is authenticated -->
+            @else
+                @include('layouts.header') <!-- Include default header for non-authenticated users -->
+            @endif
+            {{-- @include('layouts.header') --}}
 
             <!-- Page Heading -->
             @if (isset($header))
