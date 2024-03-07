@@ -5,6 +5,7 @@ use App\Http\Controllers\ProjectController;
 use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ use App\Http\Controllers\CalendarController;
 
 
 
-Route::get('/', [ProjectController::class, 'homepage'])->name('homepage');
+Route::get('/', [HomeController::class, 'index'])->name('homepage');
 
 
 Route::view('/kalender', 'kalender.index')->name('kalender.index');
