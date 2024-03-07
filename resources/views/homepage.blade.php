@@ -77,7 +77,9 @@
                         <h2 class="text-xl font-bold mb-4">{{$project->name}}</h2>
                         <p class="mb-4">{{$project->description}}</p>
                         <h2 class="text-xl font-bold mb-4">{{$project->status}}</h2>
-                        <img src="img/Project1.jpg" alt="Afbeelding" class="small-img">
+                        @if ($project->image)
+                        <img src="{{ $project->image }}" alt="{{ $project->name }}" class="project-image" />
+                    @endif
                     </div>
                 </div>
             @endforeach
