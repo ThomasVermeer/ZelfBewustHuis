@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AboutUs;
 use App\Models\Employee;
 use App\Models\Partner;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,7 +16,9 @@ class HomeController extends Controller
         $employee = Employee::all();
         $partner = Partner::all();
 
+        $projects = Project::all();
 
-        return view('homepage', compact('aboutUsData', 'employee', 'partner'));
+
+        return view('homepage', compact('aboutUsData', 'employee', 'partner', 'projects'));
     }
 }

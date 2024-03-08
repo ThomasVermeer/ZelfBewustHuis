@@ -25,9 +25,9 @@
                         <div class="mt-4">
                             <label for="status" class="font-bold">{{ __('Status') }}</label>
                             <select id="status" name="status" class="block mt-1 w-full" required>
-                                <option value="inOntwikkeling">inOntwikkeling</option>
-                                <option value="lopende">lopende</option>
-                                <option value="gerealiseerd">gerealiseerd</option>
+                                <option value="inDevelopment">InOntwikkeling</option>
+                                <option value="onGoing">Lopende</option>
+                                <option value="realised">Gerealiseerd</option>
                             </select>
                         </div>
                     
