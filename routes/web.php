@@ -6,6 +6,7 @@ use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,7 @@ Route::view('/kalender', 'kalender.index')->name('kalender.index');
 
 
 Route::resource('projects', ProjectController::class);
-
+Route::resource('locations', LocationController::class);
 Route::get('/calendar', [CalendarController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
