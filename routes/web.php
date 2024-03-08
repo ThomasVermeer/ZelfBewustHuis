@@ -29,7 +29,7 @@ Route::get('/', [HomeController::class, 'index'])->name('homepage');
 
 Route::view('/kalender', 'kalender.index')->name('kalender.index');
 
-Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+
 Route::resource('projects', ProjectController::class);
 
 Route::get('/calendar', [CalendarController::class, 'index']);

@@ -12,11 +12,12 @@
                 <div style="">
                     <div class="name-status">
                         <h2 class="text-2xl font-bold  mr-20">{{ $project->name }}</h2>
+                        
                         <p class="status-label 
                                 {{-- Kleuren toevoegen aan status --}}
                                 @if($project->status === 'inDevelopment')
                                     status-in-ontwikkeling
-                                @elseif($project->status === 'ongoing')
+                                @elseif($project->status === 'onGoing')
                                     status-lopend
                                 @elseif($project->status === 'realised')
                                     status-gerealiseerd
@@ -25,11 +26,13 @@
                                 {{-- Status in Nederlands tonen --}}
                                 @if($project->status === 'inDevelopment')
                                     {{ __('inDevelopment')}}
-                                @elseif($project->status === 'ongoing')
+                                @elseif($project->status === 'onGoing')
                                     {{ __('ongoing')}}
                                 @elseif($project->status === 'realised')
                                     {{ __('realised')}}
                                 @endif
+                            
+                               
                         </p>
                     </div>
                     <p class="text-gray-700">{{ $project->description }}</p>
