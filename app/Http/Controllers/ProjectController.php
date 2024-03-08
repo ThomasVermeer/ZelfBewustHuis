@@ -18,7 +18,7 @@ class ProjectController extends Controller
     {
         $projects = Project::all();
 
-        return view('/homepage', compact('projects'));
+        return view('homepage', compact('projects'));
     }
 
     public function create()
