@@ -5,36 +5,34 @@
             <a href="{{ route('projects.create') }}" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">Project aanmaken</a>
         </div>
     
-        @forelse($projects as $project)
-            <div class="bg-gray-100 p-6 mb-6 rounded">
-                <div style="">
-                    <div class="name-status">
-                        <h2 class="text-2xl font-bold  mr-20">{{ $project->name }}</h2>
-                        <p class="status-label 
-                                {{-- Kleuren toevoegen aan status --}}
+        <div class="grid grid-cols-4 gap-6">
+            @forelse($projects as $project)
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div>
+                        <div class="name-status mb-4 flex items-center">
+                            <h2 class="text-2xl font-bold text-green-800">{{ $project->name }}</h2>
+                            <span class="ml-2 px-2 py-1 text-sm font-medium rounded-full
+                                        @if($project->status === 'inDevelopment')
+                                            bg-yellow-400 text-yellow-900
+                                        @elseif($project->status === 'ongoing')
+                                            bg-green-400 text-green-900
+                                        @elseif($project->status === 'realised')
+                                            bg-blue-400 text-blue-900
+                                        @endif">
                                 @if($project->status === 'inDevelopment')
-                                    status-in-ontwikkeling
+                                    In Ontwikkeling
                                 @elseif($project->status === 'ongoing')
-                                    status-lopend
-                                @elseif($project->status === 'realised')
-                                    status-gerealiseerd
-                                @endif">
-
-                                {{-- Status in Nederlands tonen --}}
-                                @if($project->status === 'inDevelopment')
-                                    {{ __('inDevelopment')}}
-                                @elseif($project->status === 'ongoing')
-                                    {{ __('ongoing')}}
+                                    Lopend
                                 @elseif($project->status === 'realised')
                                     Gerealiseerd
                                 @endif
-                        </p>
+                            </span>
+                        </div>
+                        <p class="text-gray-700">{{ $project->description }}</p>
+                        @if ($project->image)
+                            <img src="{{ $project->image }}" alt="{{ $project->name }}" class="object-cover h-48 w-full rounded-md shadow-md">
+                        @endif
                     </div>
-                    <p class="text-gray-700">{{ $project->description }}</p>
-                    @if ($project->image)
-                        <img src="{{ $project->image }}" alt="{{ $project->name }}" class="project-image" />
-                    @endif
-                </div>
 
                     <div class="mt-4 flex items-center justify-between">
                         <a href="{{ route('projects.edit', $project->id) }}" class="flex items-center text-green-500 hover:underline">
