@@ -18,7 +18,7 @@ class PartnersSeeder extends Seeder
         for ($i = 0; $i < 5; $i++) {
             Partner::create([
                 'name' => $faker->company,
-                'logo' => 'public/about_us/img/Project1.jpg',
+                'logo' => $faker->image('public/storage/img', 400, 300, null, false),
             ]);
         }
     }

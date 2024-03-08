@@ -18,7 +18,7 @@ class EmployeesSeeder extends Seeder
         for ($i = 0; $i < 5; $i++) {
             Employee::create([
                 'name' => $faker->company,
-                'image' => 'public/about_us/img/Project1.jpg',
+                'image' => $faker->image('public/storage/img', 400, 300, null, false),
             ]);
         }
     }

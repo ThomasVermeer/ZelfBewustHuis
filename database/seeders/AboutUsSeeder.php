@@ -22,7 +22,7 @@ class AboutUsSeeder extends Seeder
 
         AboutUs::create([
             'text' => $faker->paragraph,
-            'image' => 'public/about_us/img/Project1.jpg',
+            'image' => $faker->image('public/storage/img', 400, 300, null, false),
             'partner_id' => $partnerId,
             'employee_id' => $employeeId,
         ]);
