@@ -9,7 +9,7 @@
                     <p class="text-gray-700">{{ $aboutUs->text }}</p>
                 </div>
                 @if ($aboutUs->image)
-                    <img src="{{ asset('storage/img/' . $aboutUs->image) }}" alt="About Us Image" class="object-cover h-48 w-full rounded-md shadow-md mt-4">
+                    <img src="{{ $aboutUs->image }}" alt="About Us Image" class="object-cover h-48 w-full rounded-md shadow-md mt-4">
                 @endif
             </div>
         </div>
