@@ -57,7 +57,7 @@
                     <li><a href="#" class="text-white hover:text-gray-300">Home</a></li>
                     <li><a href="{{ route('projects.index')}}" class="text-white hover:text-gray-300">Projecten</a></li>
                     <li><a href="{{ route('events.index')}}" class="text-white hover:text-gray-300">Evenementen</a></li>
-                    <li><a href="#" class="text-white hover:text-gray-300">Over Ons</a></li>
+                    <li><a href="/over_ons_pagina" class="text-white hover:text-gray-300">Over Ons</a></li>
                     <li><a href="#" class="text-white hover:text-gray-300">Contact</a></li>
                     @if(Auth::check())
                         <form action="{{ route('logout') }}" method="POST">
