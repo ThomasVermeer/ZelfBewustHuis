@@ -1,6 +1,7 @@
 <x-app-layout>
     <!-- Banner -->
     <img src="img/banner-zelfbewuste-huis.jpg" alt="Banner" class="banner">
+                                    
 
     <h1>Projecten</h1>
     <div class="carousel" id="project-carousel">
@@ -14,6 +15,42 @@
                     <img src="{{ $project->image }}" alt="{{ $project->name }}" class="project-image" />
                 @endif
                 </div>
+            </div>
+        @endforeach
+    </div>
+
+    <div class="container">
+        <h1 class="text-3xl font-bold mb-4">Over Ons</h1>
+    
+        @foreach ($aboutUsData as $aboutUs)
+            <div class="mb-8">
+                <p class="text-lg">{{ $aboutUs->text }}</p>
+                <img src="{{ asset('storage/img/' . $aboutUs->image) }}" alt="{{ $aboutUs->name }}" >
+        
+                <div class="mt-8">
+                    <h2 class="text-xl font-semibold mb-2">Personen</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4">
+                        @foreach ($employee as $employeeItem)
+                            <div class="flex flex-col items-center mb-4">
+                                <img src="{{ asset('storage/img/' . $employeeItem->image) }}" alt="{{ $employeeItem->name }}" class="w-16 h-16 object-cover rounded-full mb-2 max-h-16">
+                                <span class="text-center">{{ $employeeItem->name }}</span>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <h2 class="text-xl font-semibold mb-2">Partners</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4">
+                        @foreach ($partner as $partnerItem)
+                            <div class="flex flex-col items-center mb-4">
+                                <img src="{{ asset('storage/img/' . $partnerItem->logo) }}" alt="{{ $partnerItem->name }}" class="w-16 h-16 object-cover rounded-full mb-2 max-h-16">
+                                <span class="text-center">{{ $partnerItem->name }}</span>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
             </div>
         @endforeach
     </div>
