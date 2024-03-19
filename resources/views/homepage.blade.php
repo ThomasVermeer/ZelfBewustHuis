@@ -18,6 +18,7 @@
         @endforeach
     </div>
 
+
     <div class="container">
         <h1 class="text-3xl font-bold mb-4">Over Ons</h1>
     
@@ -53,6 +54,8 @@
             </div>
         @endforeach
     </div>
+
+
     <footer class="bg-green-800" style="padding-top: 20px; padding-bottom: 20px;">
         <h1 class="text-2xl mt-4">Locatie</h1>
     

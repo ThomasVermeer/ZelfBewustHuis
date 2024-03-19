@@ -35,3 +35,13 @@
     align-items: center;
     margin-bottom: 15px;
 }
+
+/* events */
+.event-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+}
+.address-flex{
+    display: flex;
+}
