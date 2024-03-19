@@ -53,15 +53,25 @@
             </div>
         @endforeach
     </div>
-
     <footer class="bg-green-800" style="padding-top: 20px; padding-bottom: 20px;">
         <h1 class="text-2xl mt-4">Locatie</h1>
-        <h2 class="">Curio, frankenlein, 15 (HBO)</h2>
-
-        <!-- Afbeeldingen naast elkaar met ruimte ertussen -->
+    
+        <!-- Locatieblokjes naast elkaar -->
         <div style="display: flex; margin-top: 20px;">
-            <img src="img/Project1.jpg" width="150" style="margin-right: 20px;">
-            <img src="img/Project1.jpg" width="150" style="margin-right: 20px;">
+            @foreach($locations as $location)
+                <div class="bg-green-700 border rounded-md p-4 mr-4">
+                    <h2 class="text-white">
+                        {{ $location->city }}, {{ $location->street }} {{ $location->number }}
+                    </h2>
+        
+                    @if ($location->image)
+                        <img src="{{ $location->image }}" alt="{{ $location->city }}" class="location-image mt-4" style="width: 150px;">
+                    @else
+                        <div class="bg-gray-200 h-40 mt-4 rounded"></div>
+                    @endif
+                </div>
+            @endforeach
         </div>
     </footer>
+    
 </x-app-layout>

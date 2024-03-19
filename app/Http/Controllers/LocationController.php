@@ -30,6 +30,8 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
+
+        // location image validation / path / create
         $request->validate([
             'city' => 'required',
             'street' => 'required',
