@@ -67,16 +67,16 @@ Route::middleware('auth')->group(function () {
     // projects
     Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
     Route::post('/projects/store', [ProjectController::class, 'store'])->name('projects.store');
-    Route::get('/projects/edit', [ProjectController::class, 'edit'])->name('projects.edit');
-    Route::put('/projects/{project}/update', [ProjectController::class, 'update'])->name('projects.update');
-    Route::delete('/projects/{project}/delete', [ProjectController::class, 'destroy'])->name('projects.destroy');
+    Route::get('/projects/{project}/edit', [ProjectController::class, 'edit'])->name('projects.edit'); // Voeg {project} parameter toe
+    Route::put('/projects/{project}/update', [ProjectController::class, 'update'])->name('projects.update'); // Voeg {project} parameter toe
+    Route::delete('/projects/{project}/delete', [ProjectController::class, 'destroy'])->name('projects.destroy'); // Voeg {project} parameter toe
 
     // events
     Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
     Route::post('/events/store', [EventController::class, 'store'])->name('events.store');
-    Route::get('/events/edit', [EventController::class, 'edit'])->name('events.edit');
-    Route::put('/events/{event}/update', [EventController::class, 'update'])->name('events.update');
-    Route::delete('/events/{event}/delete', [EventController::class, 'destroy'])->name('events.destroy');
+    Route::get('/events/{event}/edit', [EventController::class, 'edit'])->name('events.edit'); // Voeg {event} parameter toe
+    Route::put('/events/{event}/update', [EventController::class, 'update'])->name('events.update'); // Voeg {event} parameter toe
+    Route::delete('/events/{event}/delete', [EventController::class, 'destroy'])->name('events.destroy'); // Voeg {event} parameter toe
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

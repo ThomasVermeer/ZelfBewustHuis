@@ -8,6 +8,11 @@
         </div>
     
         @forelse($locations as $location)
+            @php
+                
+                var_dump($location);
+            @endphp
+
             <div class="bg-gray-100 p-6 mb-6 rounded">
                 <div>
                     <h2 class="text-2xl font-bold mb-2">{{ $location->city }}</h2>
