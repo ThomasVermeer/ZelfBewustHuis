@@ -97,28 +97,7 @@ class AboutUsController extends Controller
 
     public function createEmployee(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
-        $employee = new Employee();
-        $employee->name = $validatedData['name'];
-
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '_' . $image->getClientOriginalName();
-            
-            // Verplaats de afbeelding naar de opslaglocatie
-            $image->storeAs('public/img', $imageName);
-            
-            // Update het pad naar de afbeelding in de database
-            $employee->logo = 'storage/img/' . $imageName;
-        }
-
-        $employee->save();
-
-        return redirect()->route('about_us.employees.create')->with('success', 'Werknemer is toegevoegd!');
+        return view('about_us.employees.create');
     }
 
     public function storeEmployee(Request $request)
@@ -198,30 +177,7 @@ class AboutUsController extends Controller
 
     public function createPartner(Request $request)
     {
-        // Validatie van de ontvangen gegevens
-        $validatedData = $request->validate([
-            'name' => 'required|string',
-            'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-    
-        // Maak een nieuwe partner aan
-        $partner = new Partner();
-        $partner->name = $validatedData['name'];
-    
-        if ($request->hasFile('logo')) {
-            $logo = $request->file('logo');
-            $logoName = time() . '_' . $logo->getClientOriginalName();
-            
-            // Verplaats de afbeelding naar de opslaglocatie
-            $logo->storeAs('public/img', $logoName);
-            
-            // Update het pad naar de afbeelding in de database
-            $partner->logo = 'storage/img/' . $logoName;
-        }
-    
-        $partner->save();
-    
-        return redirect()->route('about_us.partners.create')->with('success', 'Partner is toegevoegd!');
+        return view('about_us.partners.create');
     }
 
     public function storePartner(Request $request)

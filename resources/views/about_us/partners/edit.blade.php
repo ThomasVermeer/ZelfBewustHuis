@@ -6,7 +6,7 @@
             @method('PUT')
             <div class="mb-4">
                 <label for="name" class="block text-lg font-bold mb-2">Naam:</label>
-                <input type="text" name="name" id="name" class="w-full px-3 py-2 border rounded-md" value="{{ $partner->name }}" required>
+                <input type="text" name="name" id="name" class="w-full px-3 py-2 border rounded-md text-black" value="{{ $partner->name }}" required>
             </div>
             <div class="mb-4">
                 <label for="logo" class="block text-lg font-bold mb-2">Huidig Logo:</label>
