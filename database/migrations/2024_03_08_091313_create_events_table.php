@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('address');
             $table->string('city');
             $table->string('zipcode');
-            $table->time('start-time');
-            $table->time('end-time');
-            $table->dateTime('date');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->date('date');
             $table->decimal('latitude', 10, 6)->nullable();
             $table->decimal('longitude', 10, 6)->nullable();
             $table->timestamps();

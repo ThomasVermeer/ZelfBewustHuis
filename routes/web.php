@@ -55,10 +55,10 @@ Route::view('/kalender', 'kalender.index')->name('kalender.index');
 // Route::resource('projects', ProjectController::class);
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 
+Route::get('/events', [ProjectController::class, 'index'])->name('events.index');
 
 Route::resource('locations', LocationController::class);
 
-Route::resource('events', EventController::class);
 
 
 Route::get('/calendar', [CalendarController::class, 'index']);
@@ -70,6 +70,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/projects/edit', [ProjectController::class, 'edit'])->name('projects.edit');
     Route::put('/projects/{project}/update', [ProjectController::class, 'update'])->name('projects.update');
     Route::delete('/projects/{project}/delete', [ProjectController::class, 'destroy'])->name('projects.destroy');
+
+    // events
+    Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
+    Route::post('/events/store', [EventController::class, 'store'])->name('events.store');
+    Route::get('/events/edit', [EventController::class, 'edit'])->name('events.edit');
+    Route::put('/events/{event}/update', [EventController::class, 'update'])->name('events.update');
+    Route::delete('/events/{event}/delete', [EventController::class, 'destroy'])->name('events.destroy');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
