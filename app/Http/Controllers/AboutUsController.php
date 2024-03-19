@@ -62,97 +62,169 @@ class AboutUsController extends Controller
         return redirect()->route('about_us.index')->with('success', 'About Us informatie is bijgewerkt!');
     } 
     
-    // Bewerk, maak aan en verwijder werknemers
     public function editEmployee($id)
     {
         $employee = Employee::findOrFail($id);
-        return view('employees.edit', compact('employee'));
+        return view('about_us.employees.edit', compact('employee'));
     }
 
     public function updateEmployee(Request $request, $id)
     {
         $employee = Employee::findOrFail($id);
 
-        // Validatie van de ontvangen gegevens
         $validatedData = $request->validate([
             'name' => 'required|string',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        // Bewerk de werknemer
         $employee->name = $validatedData['name'];
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('employee_images');
-            $employee->image = $imagePath;
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            
+            // Verplaats de afbeelding naar de opslaglocatie
+            $image->storeAs('public/img', $imageName);
+            
+            // Update het pad naar de afbeelding in de database
+            $employee->image = 'storage/img/' . $imageName;
         }
 
         $employee->save();
 
-        return redirect()->route('about_us.employees.edit')->with('success', 'Werknemer is bijgewerkt!');
+        return redirect()->route('about_us.index')->with('success', 'Werknemer is bijgewerkt!');
     }
 
     public function createEmployee(Request $request)
     {
-        // Validatie van de ontvangen gegevens
         $validatedData = $request->validate([
             'name' => 'required|string',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        // Maak een nieuwe werknemer aan
         $employee = new Employee();
         $employee->name = $validatedData['name'];
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('employee_images');
-            $employee->image = $imagePath;
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            
+            // Verplaats de afbeelding naar de opslaglocatie
+            $image->storeAs('public/img', $imageName);
+            
+            // Update het pad naar de afbeelding in de database
+            $employee->logo = 'storage/img/' . $imageName;
         }
 
         $employee->save();
 
-        return redirect()->route('about_us.employees.edit')->with('success', 'Werknemer is toegevoegd!');
+        return redirect()->route('about_us.employees.create')->with('success', 'Werknemer is toegevoegd!');
+    }
+
+    public function storeEmployee(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $employee = new Employee();
+        $employee->name = $validatedData['name'];
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            
+            // Verplaats de afbeelding naar de opslaglocatie
+            $image->storeAs('public/img', $imageName);
+            
+            // Update het pad naar de afbeelding in de database
+            $employee->logo = 'storage/img/' . $imageName;
+        }
+
+        $employee->save();
+
+        return redirect()->route('about_us.index')->with('success', 'Werknemer is toegevoegd!');
     }
 
     public function destroyEmployee($id)
     {
-        $employee = Employee::findOrFail($id);
-        $employee->delete();
-
-        return redirect()->route('about_us.employees.edit')->with('success', 'Werknemer is verwijderd!');
+        // Controleren of er minimaal één werknemer en één partner is voordat we proberen te verwijderen
+        if (Employee::count() > 1 && Partner::count() > 0) {
+            $employee = Employee::findOrFail($id);
+            $employee->delete();
+            return redirect()->route('about_us.index')->with('success', 'Werknemer is verwijderd!');
+        } else {
+            return redirect()->route('about_us.index')->with('error', 'Er moet ten minste één werknemer en één partner blijven!');
+        }
     }
+    
 
     // Bewerk, maak aan en verwijder partners
     public function editPartner($id)
     {
         $partner = Partner::findOrFail($id);
-        return view('partners.edit', compact('partner'));
+        return view('about_us.partners.edit', compact('partner'));
     }
 
     public function updatePartner(Request $request, $id)
     {
         $partner = Partner::findOrFail($id);
-
+    
         // Validatie van de ontvangen gegevens
         $validatedData = $request->validate([
             'name' => 'required|string',
             'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-
+    
         // Bewerk de partner
         $partner->name = $validatedData['name'];
-
+    
         if ($request->hasFile('logo')) {
-            $logoPath = $request->file('logo')->store('partner_logos');
-            $partner->logo = $logoPath;
+            $logo = $request->file('logo');
+            $logoName = time() . '_' . $logo->getClientOriginalName();
+            
+            // Verplaats de afbeelding naar de opslaglocatie
+            $logo->storeAs('public/img', $logoName);
+            
+            // Update het pad naar de afbeelding in de database
+            $partner->logo = 'storage/img/' . $logoName;
         }
-
+    
         $partner->save();
-
-        return redirect()->route('about_us.partners.edit')->with('success', 'Partner is bijgewerkt!');
-    }
+    
+        return redirect()->route('about_us.index')->with('success', 'Partner is bijgewerkt!');
+    }    
 
     public function createPartner(Request $request)
+    {
+        // Validatie van de ontvangen gegevens
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+    
+        // Maak een nieuwe partner aan
+        $partner = new Partner();
+        $partner->name = $validatedData['name'];
+    
+        if ($request->hasFile('logo')) {
+            $logo = $request->file('logo');
+            $logoName = time() . '_' . $logo->getClientOriginalName();
+            
+            // Verplaats de afbeelding naar de opslaglocatie
+            $logo->storeAs('public/img', $logoName);
+            
+            // Update het pad naar de afbeelding in de database
+            $partner->logo = 'storage/img/' . $logoName;
+        }
+    
+        $partner->save();
+    
+        return redirect()->route('about_us.partners.create')->with('success', 'Partner is toegevoegd!');
+    }
+
+    public function storePartner(Request $request)
     {
         // Validatie van de ontvangen gegevens
         $validatedData = $request->validate([
@@ -165,20 +237,30 @@ class AboutUsController extends Controller
         $partner->name = $validatedData['name'];
 
         if ($request->hasFile('logo')) {
-            $logoPath = $request->file('logo')->store('partner_logos');
-            $partner->logo = $logoPath;
+            $logo = $request->file('logo');
+            $logoName = time() . '_' . $logo->getClientOriginalName();
+            
+            // Verplaats de afbeelding naar de opslaglocatie
+            $logo->storeAs('public/img', $logoName);
+            
+            // Update het pad naar de afbeelding in de database
+            $partner->logo = 'storage/img/' . $logoName;
         }
 
         $partner->save();
 
-        return redirect()->route('about_us.partners.edit')->with('success', 'Partner is toegevoegd!');
+        return redirect()->route('about_us.index')->with('success', 'Partner is toegevoegd!');
     }
-
+    
     public function destroyPartner($id)
     {
-        $partner = Partner::findOrFail($id);
-        $partner->delete();
-
-        return redirect()->route('about_us.partners.edit')->with('success', 'Partner is verwijderd!');
-    }
+        // Controleren of er minimaal één werknemer en één partner is voordat we proberen te verwijderen
+        if (Partner::count() > 1 && Employee::count() > 0) {
+            $partner = Partner::findOrFail($id);
+            $partner->delete();
+            return redirect()->route('about_us.index')->with('success', 'Partner is verwijderd!');
+        } else {
+            return redirect()->route('about_us.index')->with('error', 'Er moet ten minste één partner en één werknemer blijven!');
+        }
+    }   
 }

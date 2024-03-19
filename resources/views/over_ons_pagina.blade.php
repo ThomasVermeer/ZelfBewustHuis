@@ -2,10 +2,10 @@
     <div class="max-w-6xl mx-auto mt-8 p-8 bg-green-900 shadow-lg rounded-lg text-white">
         <!-- About Us Informatie -->
         <div>
-            <h1 class="text-4xl font-bold mb-4">About Us Informatie</h1>
+            <h1 class="text-4xl font-bold mb-4">Over Ons Informatie</h1>
             <div class="bg-white p-6 rounded-lg shadow-md">
                 <div>
-                    <h2 class="text-2xl font-bold text-green-800">About Us Text</h2>
+                    <h2 class="text-2xl font-bold text-green-800">Over Ons</h2>
                     <p class="text-gray-700">{{ $aboutUs->text }}</p>
                 </div>
                 @if ($aboutUs->image)
