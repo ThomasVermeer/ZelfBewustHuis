@@ -21,17 +21,20 @@
                     @if ($event->image)
                         <img src="{{ $event->image }}" alt="{{ $event->name }}" class="event-image" />
                     @endif
+                    {{ date('H:i', strtotime($event->start_time)) }} - {{ date('H:i', strtotime($event->end_time)) }}
+                    <br>
+                    {{ date('d-m-Y', strtotime($event->date)) }}
                     
                 </div>
 
-                {{-- <div class="mt-4 flex space-x-2">
-                    <a href="{{ route('projects.edit', $project->id) }}" class="text-blue-500 hover:underline">
+                <div class="mt-4 flex space-x-2">
+                    <a href="{{ route('events.edit', $event->id) }}" class="text-blue-500 hover:underline">
                         <div class="project-flex">
                             <img style="width: 20px; margin-right: 4px;" src="{{ asset('img/Pencil.png')}}" alt="">
                             <p style="margin-right: 4px; color: #2457c5;">Bewerken</p>
                         </div>
                     </a>
-                    <form action="{{ route('projects.destroy', $project->id) }}" method="post" onsubmit="return confirm('Weet u zeker dat u dit project wilt verwijderen?')">
+                    <form action="{{ route('events.destroy', $event->id) }}" method="post" onsubmit="return confirm('Weet u zeker dat u dit project wilt verwijderen?')">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="text-red-500 hover:underline">
@@ -41,7 +44,7 @@
                             </div>
                         </button>
                     </form>
-                </div> --}}
+                </div>
             </div>
         @empty
             <p class="text-gray-600">Geen evenementen gevonden.</p>

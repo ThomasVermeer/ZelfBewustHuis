@@ -35,8 +35,8 @@ class EventController extends Controller
             'address' => 'required',
             'city' => 'required',
             'zipcode' => 'required',
-            'start-time' => 'required',
-            'end-time' => 'required',
+            'start_time' => 'required',
+            'end_time' => 'required',
             'date' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif',
         ]);
@@ -55,8 +55,8 @@ class EventController extends Controller
                 'address' => $request->address,
                 'city' => $request->city,
                 'zipcode' => $request->zipcode,
-                'start-time' => $request->input('start-time'),
-                'end-time' => $request->input('end-time'),
+                'start_time' => $request->start_time,
+                'end_time' => $request->end_time,
                 'date' => $request->date,
                 'image' => $imageName,
             ]);
@@ -79,7 +79,8 @@ class EventController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $event = Event::findOrFail($id);
+        return view('events.edit', compact('event'));
     }
 
     /**
@@ -87,7 +88,29 @@ class EventController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $event = Event::findOrFail($id);
+
+        $image = $request->file('image');
+        $imageName = time() . '_' . $image->getClientOriginalName();
+
+        $image->storeAs('public/img', $imageName);
+
+        $imageName = 'storage/img/' . $imageName;
+
+        $event->update([
+            'name' => $request->name,
+                'description' => $request->description,
+                'address' => $request->address,
+                'city' => $request->city,
+                'zipcode' => $request->zipcode,
+                'start_time' => $request->start_time,
+                'end_time' => $request->end_time,
+                'date' => $request->date,
+                'image' => $imageName,
+        ]);
+
+        return redirect()->route('events.index')
+            ->with('success', 'Evenement succesvol bijgewerkt.');
     }
 
     /**
@@ -95,6 +118,9 @@ class EventController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $event = Event::findOrFail($id);
+        $event->delete();
+        return redirect()->route('events.index')
+            ->with('success', 'Evenement succesvol verwijderd.');
     }
 }
