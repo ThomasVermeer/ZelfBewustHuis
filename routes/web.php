@@ -36,16 +36,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/about_us/edit', [AboutUsController::class, 'editAboutUs'])->name('about_us.edit');
     Route::post('/about_us/update', [AboutUsController::class, 'updateAboutUs'])->name('about_us.update');
 
-    //employees
-    Route::get('/about_us/employees', [AboutUsController::class, 'editEmployee'])->name('about_us.employees.edit');
-    Route::post('/about_us/employees', [AboutUsController::class, 'updateEmployee'])->name('about_us.employees.update');
+    // Employees
+    Route::get('/about_us/employees/{employee}', [AboutUsController::class, 'editEmployee'])->name('about_us.employees.edit');
+    Route::put('/about_us/employees/{employee}', [AboutUsController::class, 'updateEmployee'])->name('about_us.employees.update');
     Route::get('/about_us/employees/create', [AboutUsController::class, 'createEmployee'])->name('about_us.employees.create');
+    Route::post('/about_us/employees/store', [AboutUsController::class, 'storeEmployee'])->name('about_us.employees.store');
     Route::delete('/about_us/employees/{employee}', [AboutUsController::class, 'destroyEmployee'])->name('about_us.employees.destroy');
 
-    //partners
-    Route::get('/about_us/partners', [AboutUsController::class, 'editPartner'])->name('about_us.partners.edit');
-    Route::post('/about_us/partners', [AboutUsController::class, 'updatePartner'])->name('about_us.partners.update');
+    // Partners
+    Route::get('/about_us/partners/{partner}', [AboutUsController::class, 'editPartner'])->name('about_us.partners.edit');
+    Route::put('/about_us/partners/{partner}', [AboutUsController::class, 'updatePartner'])->name('about_us.partners.update');
     Route::get('/about_us/partners/create', [AboutUsController::class, 'createPartner'])->name('about_us.partners.create');
+    Route::post('/about_us/partners/store', [AboutUsController::class, 'storePartner'])->name('about_us.partners.store');
     Route::delete('/about_us/partners/{partner}', [AboutUsController::class, 'destroyPartner'])->name('about_us.partners.destroy');
 });
 

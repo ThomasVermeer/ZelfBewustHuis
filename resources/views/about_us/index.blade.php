@@ -25,7 +25,7 @@
                     <div class="bg-white p-6 rounded-lg shadow-md">
                         <div>
                             <h2 class="text-2xl font-bold text-green-800">{{ $partner->name }}</h2>
-                            <img src="{{ asset('storage/img/' . $partner->logo) }}" alt="{{ $partner->name }}" class="object-cover h-24 w-full rounded-md shadow-md mt-4">
+                            <img src="{{ $partner->logo }}" alt="{{ $partner->name }}" class="object-cover h-24 w-full rounded-md shadow-md mt-4">
                         </div>
                         <div class="mt-4">
                             <a href="{{ route('about_us.partners.edit', $partner->id) }}" class="text-blue-500 hover:underline">Bewerk</a>
@@ -33,7 +33,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="text-red-500 hover:underline">Verwijder</button>
-                            </form>
+                            </form>                            
                         </div>
                     </div>
                 @endforeach
@@ -51,7 +51,7 @@
                     <div class="bg-white p-6 rounded-lg shadow-md">
                         <div>
                             <h2 class="text-2xl font-bold text-green-800">{{ $employee->name }}</h2>
-                            <img src="{{ asset('storage/img/' . $employee->image) }}" alt="{{ $employee->name }}" class="object-cover h-24 w-full rounded-md shadow-md mt-4">
+                            <img src="{{ $employee->image }}" alt="{{ $employee->name }}" class="object-cover h-24 w-full rounded-md shadow-md mt-4">
                         </div>
                         <div class="mt-4">
                             <a href="{{ route('about_us.employees.edit', $employee->id) }}" class="text-blue-500 hover:underline">Bewerk</a>
