@@ -16,22 +16,22 @@
                             <label for="name" class="font-bold">{{ __('Naam') }}</label>
                             <input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $project->name }}" required autofocus />
                         </div>
+
                         <div class="mt-4">
                             <label for="description" class="font-bold">{{ __('Beschrijving') }}</label>
-                            <textarea id="description" class="block mt-2 mb-2 w-full" name="description" rows="4" required>{{ $project->description }}</textarea>
+                            <textarea id="description" class="block mt-1 w-full" name="description" rows="4" required>{{ $project->description }}</textarea>
                         </div>
+
                         <div class="mt-4">
-                            <label for="image" class="font-bold">{{ __('Afbeelding') }}</label>
-                            @if ($project->image)
-                            <img src="{{ asset($project->image) }}" alt="{{ $project->name }}" style="max-width: 300px; max-height: 300px;">
-                            @else
-                                <p>Geen afbeelding beschikbaar</p>
-                            @endif
-                            <input id="image" type="file" name="image" accept="image/*" class="block mt-1">
-                        </div>
-                        <div class="flex items-center justify-end mt-4">
+                            <label for="status" class="font-bold">{{ __('Status') }}</label>
+                            <select id="status" name="status" class="block mt-1 w-full" required>
+                                <option value="inDevelopment" {{ $project->status === 'inDevelopment' ? 'selected' : '' }}>inDevelopment</option>
+                                <option value="ongoing" {{ $project->status === 'ongoing' ? 'selected' : '' }}>Ongoing</option>
+                                <option value="realised" {{ $project->status === 'realised' ? 'selected' : '' }}>Realised</option>
+                            </select>
+
                             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">
-                                {{ __('Opslaan') }}
+                                {{ __('bijwerken') }}
                             </button>
                         </div>
                     </form>
