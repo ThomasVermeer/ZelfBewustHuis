@@ -38,7 +38,7 @@ Route::view('/kalender', 'kalender.index')->name('kalender.index');
 // Route::resource('projects', ProjectController::class);
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 
-Route::get('/events', [ProjectController::class, 'index'])->name('events.index');
+Route::get('/events', [EventController::class, 'index'])->name('events.index');
 
 Route::resource('locations', LocationController::class);
 
@@ -91,7 +91,7 @@ Route::view('/kalender', 'kalender.index')->name('kalender.index');
 
 
 
-Route::get('/events', [ProjectController::class, 'index'])->name('events.index');
+
 
 Route::resource('locations', LocationController::class);
 

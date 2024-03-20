@@ -70,15 +70,28 @@
 
     <footer class="bg-green-800 py-8">
         <div class="container mx-auto">
-            <h1 class="text-3xl font-bold mb-4">Locatie</h1>
-            <h2 class="text-xl mb-4">Curio, frankenlein, 15 (HBO)</h2>
-
-            <div class="flex space-x-4">
-                <img src="img/Project1.jpg" width="150" class="rounded-lg">
-                <img src="img/Project1.jpg" width="150" class="rounded-lg">
+            <h1 class="text-3xl font-bold mb-4">Locaties</h1>
+    
+            <div class="grid grid-cols-3 gap-4">
+                @foreach($locations as $index => $location)
+                    <div class="mb-8">
+                        <div class="bg-green-600 rounded-lg overflow-hidden shadow-lg">
+                            <div class="p-4 flex flex-col items-center">
+                                <h2 class="text-xl mb-2">{{ $location['city'] }}, {{ $location['street'] }} {{ $location['number'] }}</h2>
+                                <img src="{{ $location['image'] }}" class="rounded-lg" style="max-width: 200px; max-height: 150px; min-width: 200px; min-height: 150px;">
+                            </div>
+                        </div>
+                    </div>
+                    @if(($index + 1) % 3 == 0 && $index + 1 < count($locations))
+                        <div class="w-full"></div> <!-- Line break for every third item -->
+                    @endif
+                @endforeach
             </div>
         </div>
     </footer>
+    
+    
+    
 
     <!-- JavaScript voor het navigeren tussen projecten -->
     <script>

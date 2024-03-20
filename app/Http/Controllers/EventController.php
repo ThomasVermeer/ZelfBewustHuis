@@ -40,15 +40,15 @@ class EventController extends Controller
             'date' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif',
         ]);
-        
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '_' . $image->getClientOriginalName();
- 
+
             $image->storeAs('public/img', $imageName);
- 
+
             $imageName = 'storage/img/' . $imageName;
- 
+
             Event::create([
                 'name' => $request->name,
                 'description' => $request->description,
@@ -60,9 +60,9 @@ class EventController extends Controller
                 'date' => $request->date,
                 'image' => $imageName,
             ]);
- 
+
             return redirect()->route('events.index')
-            ->with('success', 'Evenement succesvol aangemaakt.');
+                ->with('success', 'Evenement succesvol aangemaakt.');
         }
     }
 
@@ -90,23 +90,18 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
 
-        $image = $request->file('image');
-        $imageName = time() . '_' . $image->getClientOriginalName();
 
-        $image->storeAs('public/img', $imageName);
-
-        $imageName = 'storage/img/' . $imageName;
 
         $event->update([
             'name' => $request->name,
-                'description' => $request->description,
-                'address' => $request->address,
-                'city' => $request->city,
-                'zipcode' => $request->zipcode,
-                'start_time' => $request->start_time,
-                'end_time' => $request->end_time,
-                'date' => $request->date,
-                'image' => $imageName,
+            'description' => $request->description,
+            'address' => $request->address,
+            'city' => $request->city,
+            'zipcode' => $request->zipcode,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+            'date' => $request->date,
+
         ]);
 
         return redirect()->route('events.index')
