@@ -30,7 +30,7 @@
                                 <option value="realised" {{ $project->status === 'realised' ? 'selected' : '' }}>Realised</option>
                             </select>
 
-                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">
+                            <button type="submit" class="inline-flex items-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-sm text-white uppercase tracking-widest hover:bg-green-700 focus:outline-none focus:border-green-700 focus:ring focus:ring-green-200 disabled:opacity-25 transition ease-in-out duration-150">
                                 {{ __('bijwerken') }}
                             </button>
                         </div>
