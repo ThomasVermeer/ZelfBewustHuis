@@ -6,11 +6,11 @@
             @method('PUT')
             <div class="mb-4">
                 <label for="name" class="block text-lg font-bold mb-2">Naam:</label>
-                <input type="text" name="name" id="name" class="w-full px-3 py-2 border rounded-md" value="{{ $employee->name }}" required>
+                <input type="text" name="name" id="name" class="w-full px-3 py-2 border rounded-md text-black" value="{{ $employee->name }}" required>
             </div>
             <div class="mb-4">
                 <label for="image" class="block text-lg font-bold mb-2">Huidige Afbeelding:</label>
-                <img src="{{ asset('storage/' . $employee->image) }}" alt="Werknemer Afbeelding" class="h-24 w-24 object-contain mb-2">
+                <img src="{{ asset('storage/img/' . $employee->image) }}" alt="Werknemer Afbeelding" class="h-24 w-24 object-contain mb-2">
                 <label for="image" class="block text-lg font-bold mb-2">Nieuwe Afbeelding:</label>
                 <input type="file" name="image" id="image" class="w-full px-3 py-2 border rounded-md">
             </div>
