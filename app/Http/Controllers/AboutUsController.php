@@ -25,7 +25,7 @@ class AboutUsController extends Controller
         $employees = Employee::all(); // Haal alle werknemers op
         return view('about_us.index', compact('aboutUs', 'partners', 'employees'));
     }
-    
+
     // Bewerk de "about us" gegevens
     public function editAboutUs()
     {
@@ -36,32 +36,32 @@ class AboutUsController extends Controller
     public function updateAboutUs(Request $request)
     {
         $aboutUs = AboutUs::first();
-        
+
         // Validatie van de ontvangen gegevens
         $validatedData = $request->validate([
             'text' => 'required|string',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-    
+
         // Bewerk de "about us" gegevens
         $aboutUs->text = $validatedData['text'];
-    
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '_' . $image->getClientOriginalName();
-            
+
             // Verplaats de afbeelding naar de opslaglocatie
             $image->storeAs('public/img', $imageName);
-            
+
             // Update het pad naar de afbeelding in de database
             $aboutUs->image = 'storage/img/' . $imageName;
         }
-    
+
         $aboutUs->save();
-    
+
         return redirect()->route('about_us.index')->with('success', 'About Us informatie is bijgewerkt!');
-    } 
-    
+    }
+
     public function editEmployee($id)
     {
         $employee = Employee::findOrFail($id);
@@ -82,10 +82,10 @@ class AboutUsController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '_' . $image->getClientOriginalName();
-            
+
             // Verplaats de afbeelding naar de opslaglocatie
             $image->storeAs('public/img', $imageName);
-            
+
             // Update het pad naar de afbeelding in de database
             $employee->image = 'storage/img/' . $imageName;
         }
@@ -113,10 +113,10 @@ class AboutUsController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '_' . $image->getClientOriginalName();
-            
+
             // Verplaats de afbeelding naar de opslaglocatie
             $image->storeAs('public/img', $imageName);
-            
+
             // Update het pad naar de afbeelding in de database
             $employee->logo = 'storage/img/' . $imageName;
         }
@@ -137,7 +137,7 @@ class AboutUsController extends Controller
             return redirect()->route('about_us.index')->with('error', 'Er moet ten minste één werknemer en één partner blijven!');
         }
     }
-    
+
 
     // Bewerk, maak aan en verwijder partners
     public function editPartner($id)
@@ -149,31 +149,31 @@ class AboutUsController extends Controller
     public function updatePartner(Request $request, $id)
     {
         $partner = Partner::findOrFail($id);
-    
+
         // Validatie van de ontvangen gegevens
         $validatedData = $request->validate([
             'name' => 'required|string',
             'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-    
+
         // Bewerk de partner
         $partner->name = $validatedData['name'];
-    
+
         if ($request->hasFile('logo')) {
             $logo = $request->file('logo');
             $logoName = time() . '_' . $logo->getClientOriginalName();
-            
+
             // Verplaats de afbeelding naar de opslaglocatie
             $logo->storeAs('public/img', $logoName);
-            
+
             // Update het pad naar de afbeelding in de database
             $partner->logo = 'storage/img/' . $logoName;
         }
-    
+
         $partner->save();
-    
+
         return redirect()->route('about_us.index')->with('success', 'Partner is bijgewerkt!');
-    }    
+    }
 
     public function createPartner(Request $request)
     {
@@ -195,10 +195,10 @@ class AboutUsController extends Controller
         if ($request->hasFile('logo')) {
             $logo = $request->file('logo');
             $logoName = time() . '_' . $logo->getClientOriginalName();
-            
+
             // Verplaats de afbeelding naar de opslaglocatie
             $logo->storeAs('public/img', $logoName);
-            
+
             // Update het pad naar de afbeelding in de database
             $partner->logo = 'storage/img/' . $logoName;
         }
@@ -207,7 +207,7 @@ class AboutUsController extends Controller
 
         return redirect()->route('about_us.index')->with('success', 'Partner is toegevoegd!');
     }
-    
+
     public function destroyPartner($id)
     {
         // Controleren of er minimaal één werknemer en één partner is voordat we proberen te verwijderen
@@ -218,5 +218,5 @@ class AboutUsController extends Controller
         } else {
             return redirect()->route('about_us.index')->with('error', 'Er moet ten minste één partner en één werknemer blijven!');
         }
-    }   
+    }
 }

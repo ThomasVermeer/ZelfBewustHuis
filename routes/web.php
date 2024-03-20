@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/about_us/employees/{employee}', [AboutUsController::class, 'editEmployee'])->name('about_us.employees.edit');
     Route::put('/about_us/employees/{employee}', [AboutUsController::class, 'updateEmployee'])->name('about_us.employees.update');
     Route::get('/about_us/employees/create', [AboutUsController::class, 'createEmployee'])->name('about_us.employees.create');
+
     Route::post('/about_us/employees/store', [AboutUsController::class, 'storeEmployee'])->name('about_us.employees.store');
     Route::delete('/about_us/employees/{employee}', [AboutUsController::class, 'destroyEmployee'])->name('about_us.employees.destroy');
 
