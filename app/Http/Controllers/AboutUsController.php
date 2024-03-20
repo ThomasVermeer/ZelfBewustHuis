@@ -65,7 +65,7 @@ class AboutUsController extends Controller
     public function editEmployee($id)
     {
         $employee = Employee::findOrFail($id);
-        return view('about_us.employees.edit', compact('employee'));
+        return view('about_us.employeesEdit', compact('employee'));
     }
 
     public function updateEmployee(Request $request, $id)
@@ -97,7 +97,7 @@ class AboutUsController extends Controller
 
     public function createEmployee(Request $request)
     {
-        return view('about_us.employees.create');
+        return view('about_us.employeesCreate');
     }
 
     public function storeEmployee(Request $request)
@@ -143,7 +143,7 @@ class AboutUsController extends Controller
     public function editPartner($id)
     {
         $partner = Partner::findOrFail($id);
-        return view('about_us.partners.edit', compact('partner'));
+        return view('about_us.partnersEdit', compact('partner'));
     }
 
     public function updatePartner(Request $request, $id)
@@ -175,9 +175,10 @@ class AboutUsController extends Controller
         return redirect()->route('about_us.index')->with('success', 'Partner is bijgewerkt!');
     }    
 
-    public function createPartner(Request $request)
+    public function createPartner()
     {
-        return view('about_us.partners.create');
+        
+        return view('about_us.partnersCreate');
     }
 
     public function storePartner(Request $request)
