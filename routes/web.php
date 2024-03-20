@@ -31,8 +31,24 @@ Route::get('/', [HomeController::class, 'index'])->name('homepage');
 
 Route::get('/over_ons_pagina', [AboutUsController::class, 'publicIndex'])->name('over_ons_pagina');
 
+
+Route::view('/kalender', 'kalender.index')->name('kalender.index');
+
+
+// Route::resource('projects', ProjectController::class);
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+
+Route::get('/events', [ProjectController::class, 'index'])->name('events.index');
+
+Route::resource('locations', LocationController::class);
+
+
+
+Route::get('/calendar', [CalendarController::class, 'index']);
+
 Route::middleware('auth')->group(function () {
-    Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+    // projects
+
     Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
     Route::post('/projects/store', [ProjectController::class, 'store'])->name('projects.store');
     Route::get('/projects/{project}/edit', [ProjectController::class, 'edit'])->name('projects.edit'); // Voeg {project} parameter toe

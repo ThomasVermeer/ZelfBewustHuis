@@ -64,6 +64,7 @@
                     <li><a href="{{ route('events.index')}}" class="text-white hover:text-gray-300">Evenementen</a></li>
                     <li><a href="{{ route('locations.index')}}" class="text-white hover:text-gray-300">locaties</a></li>
                     <li><a href="{{ route('about_us.index')}}" class="text-white hover:text-gray-300">Over Ons</a></li>
+
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button>Uitloggen</button>
