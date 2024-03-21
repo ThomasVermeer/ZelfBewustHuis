@@ -31,43 +31,6 @@
             </button>
         </div>
 
-        <hr class="my-8">
-
-        <!-- Over Ons -->
-        <div class="mb-8">
-            <h1 class="text-3xl font-bold mb-4">Over Ons</h1>
-            @foreach ($aboutUsData as $aboutUs)
-                <p class="text-lg mb-4">{{ $aboutUs->text }}</p>
-            @endforeach
-        </div>
-
-        <!-- Personen -->
-        <div class="mb-8">
-            <h2 class="text-xl font-semibold mb-4">Personen</h2>
-            <div class="grid grid-cols-2 gap-4">
-                @foreach ($employee as $employeeItem)
-                    <div class="flex items-center mb-4">
-                        <img src="{{ asset('storage/img/' . $employeeItem->image) }}" alt="{{ $employeeItem->name }}" class="w-12 h-12 object-cover rounded-full mr-2">
-                        <span>{{ $employeeItem->name }}</span>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-
-        <!-- Partners -->
-        <div class="mb-8">
-            <h2 class="text-xl font-semibold mb-4">Partners</h2>
-            <div class="grid grid-cols-2 gap-4">
-                @foreach ($partner as $partnerItem)
-                    <div class="flex items-center mb-4">
-                        <img src="{{ asset('storage/img/' . $partnerItem->logo) }}" alt="{{ $partnerItem->name }}" class="w-12 h-12 object-cover rounded-full mr-2">
-                        <span>{{ $partnerItem->name }}</span>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-
     <footer class="bg-green-800 py-8">
         <div class="container mx-auto">
             <h1 class="text-3xl font-bold mb-4">Locaties</h1>
