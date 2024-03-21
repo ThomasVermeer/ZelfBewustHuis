@@ -10,7 +10,7 @@
             <!-- Tekstinvoerveld voor de About Us tekst -->
             <div class="mb-4">
                 <label for="text" class="block text-gray-700 font-bold mb-2">About Us Tekst</label>
-                <textarea name="text" id="text" class="w-full px-3 py-2 border rounded-lg">{{ $aboutUs->text }}</textarea>
+                <textarea name="text" id="text" class="w-full px-3 py-2 border rounded-lg">{{ $aboutUs->text ?? 'onbekend'}}</textarea>
                 @error('text')
                     <p class="text-red-500 mt-1">{{ $message }}</p>
                 @enderror
