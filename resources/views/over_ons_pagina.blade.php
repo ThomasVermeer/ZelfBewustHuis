@@ -22,7 +22,7 @@
                     <div class="bg-white p-6 rounded-lg shadow-md">
                         <div>
                             <h2 class="text-2xl font-bold text-green-800">{{ $partner->name }}</h2>
-                            <img src="{{ asset('storage/img/' . $partner->logo) }}" alt="{{ $partner->name }}" class="object-cover h-24 w-full rounded-md shadow-md mt-4">
+                            <img src="{{ $partner->logo }}" alt="{{ $partner->name }}" class="object-cover h-24 w-full rounded-md shadow-md mt-4">
                         </div>
                     </div>
                 @endforeach
@@ -37,7 +37,7 @@
                     <div class="bg-white p-6 rounded-lg shadow-md">
                         <div>
                             <h2 class="text-2xl font-bold text-green-800">{{ $employee->name }}</h2>
-                            <img src="{{ asset('storage/img/' . $employee->image) }}" alt="{{ $employee->name }}" class="object-cover h-24 w-full rounded-md shadow-md mt-4">
+                            <img src="{{ $employee->image }}" alt="{{ $employee->name }}" class="object-cover h-24 w-full rounded-md shadow-md mt-4">
                         </div>
                     </div>
                 @endforeach
