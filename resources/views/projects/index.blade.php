@@ -14,16 +14,16 @@
                         <div class="name-status mb-4 flex items-center">
                             <h2 class="text-2xl font-bold text-green-800">{{ $project->name }}</h2>
                             <span class="ml-2 px-2 py-1 text-sm font-medium rounded-full
-                                        @if($project->status === 'inDevelopment')
-                                            bg-yellow-400 text-yellow-900
-                                        @elseif($project->status === 'ongoing')
-                                            bg-green-400 text-green-900
-                                        @elseif($project->status === 'realised')
-                                            bg-blue-400 text-blue-900
-                                        @endif">
+                                @if($project->status === 'inDevelopment')
+                                    bg-yellow-400 text-yellow-900
+                                @elseif($project->status === 'ongoing')
+                                    bg-green-400 text-green-900
+                                @elseif($project->status === 'realised')
+                                    bg-blue-400 text-blue-900
+                                @endif">
                                 @if($project->status === 'inDevelopment')
                                     In Ontwikkeling
-                                @elseif($project->status === 'ongoing')
+                                @elseif($project->status === 'Ongoing')
                                     Lopend
                                 @elseif($project->status === 'realised')
                                     Gerealiseerd
