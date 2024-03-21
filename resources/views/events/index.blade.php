@@ -10,6 +10,9 @@
         @forelse($events as $event)
             <div class="bg-white p-6 mb-6 rounded-lg shadow-md">
                 <div>
+                    @if ($event->image)
+                        <img src="{{ $event->image }}" alt="{{ $event->name }}" class="object-cover h-48 w-full rounded-md shadow-md mt-4" />
+                    @endif
                     <div class="name-status">
                         <h2 class="text-2xl text-black font-bold  mr-20">{{ $event->name }}</h2>
                     </div>
@@ -18,9 +21,7 @@
                         <img style="width: 25px; margin-right: 10px" src="{{ asset('img/home.png')}}" alt="">
                         <p class="text-black">{{$event->address}}, {{$event->zipcode}} {{$event->city}}</p>
                     </div>
-                    @if ($event->image)
-                        <img src="{{ $event->image }}" alt="{{ $event->name }}" class="object-cover h-48 w-full rounded-md shadow-md mt-4" />
-                    @endif
+                    
                     <span class="text-black">{{ date('H:i', strtotime($event->start_time)) }} - {{ date('H:i', strtotime($event->end_time)) }}</span>
                     <br>
                     <span class="text-black">{{ date('d-m-Y', strtotime($event->date)) }}</span>
