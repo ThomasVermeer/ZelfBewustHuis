@@ -7,11 +7,9 @@
                 <div>
                     <h2 class="text-2xl font-bold text-green-800">About Us Text</h2>
                     
-                    <p class="text-gray-700">{{ $aboutUs->text }}</p>
+                    <p class="text-gray-700">{{ $aboutUs->text ?? 'onbekend'}}</p>
                 </div>
-                @if ($aboutUs->image)
-                    <img src="{{ $aboutUs->image }}" alt="About Us Image" class="object-cover h-48 w-full rounded-md shadow-md mt-4">
-                @endif
+                <img src="{{ $aboutUs->image ?? 'onbekend'}}" alt="About Us Image" class="object-cover h-48 w-full rounded-md shadow-md mt-4">
             </div>
             <div class="mt-4">
                 <a href="{{ route('about_us.edit') }}" class="text-blue-500 hover:underline">Bewerk About Us</a>
