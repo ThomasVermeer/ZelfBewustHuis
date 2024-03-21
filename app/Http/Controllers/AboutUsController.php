@@ -106,25 +106,26 @@ class AboutUsController extends Controller
             'name' => 'required|string',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-
+    
         $employee = new Employee();
         $employee->name = $validatedData['name'];
-
+    
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '_' . $image->getClientOriginalName();
-
+    
             // Verplaats de afbeelding naar de opslaglocatie
             $image->storeAs('public/img', $imageName);
-
+    
             // Update het pad naar de afbeelding in de database
-            $employee->logo = 'storage/img/' . $imageName;
+            $employee->image = 'storage/img/' . $imageName;
         }
-
+    
         $employee->save();
-
+    
         return redirect()->route('about_us.index')->with('success', 'Werknemer is toegevoegd!');
     }
+    
 
     public function destroyEmployee($id)
     {

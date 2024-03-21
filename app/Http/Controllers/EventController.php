@@ -90,7 +90,12 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
 
+        $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
 
+            $image->storeAs('public/img', $imageName);
+
+            $imageName = 'storage/img/' . $imageName;
 
         $event->update([
             'name' => $request->name,
@@ -101,6 +106,7 @@ class EventController extends Controller
             'start_time' => $request->start_time,
             'end_time' => $request->end_time,
             'date' => $request->date,
+            'image' => $imageName,
 
         ]);
 

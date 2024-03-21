@@ -54,7 +54,7 @@
             <h1 class="text-3xl font-bold">Je Bedrijfsnaam</h1>
             <nav class="mt-4">
                 <ul class="flex space-x-8">
-                    <li><a href="#" class="text-white hover:text-gray-300">Home</a></li>
+                    <li><a href="{{ route('homepage')}}" class="text-white hover:text-gray-300">Home</a></li>
                     
                     
                     <li><a href="#" class="text-white hover:text-gray-300">Contact</a></li>
@@ -62,7 +62,7 @@
 
                     <li><a href="{{ route('projects.index')}}" class="text-white hover:text-gray-300">Projecten</a></li>
                     <li><a href="{{ route('events.index')}}" class="text-white hover:text-gray-300">Evenementen</a></li>
-                    <li><a href="{{ route('locations.index')}}" class="text-white hover:text-gray-300">locaties</a></li>
+                    <li><a href="{{ route('locations.index')}}" class="text-white hover:text-gray-300">Locaties</a></li>
                     <li><a href="{{ route('about_us.index')}}" class="text-white hover:text-gray-300">Over Ons</a></li>
 
                         <form action="{{ route('logout') }}" method="POST">
