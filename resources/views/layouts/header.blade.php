@@ -56,8 +56,6 @@
                 <ul class="flex space-x-8">
                     <li><a href="{{ route('homepage')}}" class="text-white hover:text-gray-300">Home</a></li>
                     
-                    
-                    <li><a href="#" class="text-white hover:text-gray-300">Contact</a></li>
                     @if(Auth::check())
 
                     <li><a href="{{ route('projects.index')}}" class="text-white hover:text-gray-300">Projecten</a></li>
